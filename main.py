@@ -1,6 +1,5 @@
-
-def Exibe_menu():
-    menu = """
+import funcoes
+menu = """
 
 [d] Depositar
 [s] Sacar
@@ -8,7 +7,8 @@ def Exibe_menu():
 [x] Sair
 
 => """
-    return menu
+
+
 saldo = 0
 limite = 500.00
 extrato = ""
@@ -16,21 +16,14 @@ numero_saque = 3
 
 
 
+
 while True:
-    opcao = input(Exibe_menu())
+    opcao = input(menu)
     if opcao == "d":
-        while True:
-                try:          
-                    valor_deposito = float(input('Informe o Valor do Depósito:\n=>'))
-                    if valor_deposito > 0:
-                        saldo += valor_deposito
-                        valor_deposito = f"{valor_deposito:.2f}"
-                        extrato += '\n Depósito R$ '
-                        extrato += str(valor_deposito) 
-                        print('Depósito realizado com sucesso')
-                        break
-                except:
-                    print('Valor informado invalido')
+                 
+        valor_deposito = float(input('Informe o Valor do Depósito:\n=>'))
+        extrato, saldo = funcoes.Depositar(valor_deposito,saldo,extrato)
+               
                    
 
     elif opcao == "s":
