@@ -1,4 +1,6 @@
-menu = """
+
+def Exibe_menu():
+    menu = """
 
 [d] Depositar
 [s] Sacar
@@ -6,14 +8,16 @@ menu = """
 [x] Sair
 
 => """
-
+    return menu
 saldo = 0
 limite = 500.00
 extrato = ""
-numero_seque = 3
+numero_saque = 3
+
+
 
 while True:
-    opcao = input(menu)
+    opcao = input(Exibe_menu())
     if opcao == "d":
         while True:
                 try:          
@@ -33,8 +37,8 @@ while True:
         while True:
             try:
                 valor_saque = float(input('Informe o valor do Saque:\n=>'))
-                if valor_saque > 0 and valor_saque <= saldo and valor_saque <= limite and numero_seque > 0:
-                    numero_seque -= 1                    
+                if valor_saque > 0 and valor_saque <= saldo and valor_saque <= limite and numero_saque > 0:
+                    numero_saque -= 1                    
                     saldo -= valor_saque
                     valor_saque = f"{valor_saque:.2f}"
                     extrato += '\n Saque R$ '
@@ -51,7 +55,7 @@ while True:
                 elif valor_saque > limite:
                    print(f'Você não pode sacar R$ {valor_saque:.2f}', 'porque irá ultrapassar seu limite de saque')
 
-                elif numero_seque == 0:
+                elif numero_saque == 0:
                     print('Você já fez os seus 3 saques diários')
 
                 else:
