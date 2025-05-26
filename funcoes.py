@@ -19,7 +19,7 @@ def Depositar(valor_deposito, saldo, extrato):
     return extrato, saldo
 
 
-def Sacar(valor_saque, saldo, limite, numero_saque):
+def Sacar(valor_saque, saldo, limite, numero_saque, extrato):
     if valor_saque > 0 and valor_saque <= saldo and valor_saque <= limite and numero_saque > 0:
         numero_saque -= 1                    
         saldo -= valor_saque
@@ -41,4 +41,4 @@ def Sacar(valor_saque, saldo, limite, numero_saque):
 
     else:
         print('valor informado é inválido')
-        return saldo, limite, numero_saque
+        return extrato
